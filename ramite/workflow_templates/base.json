@@ -1,0 +1,63 @@
+{
+  "create_reservation_topic": "ramite/sdn/reservation/create",
+  "delete_reservation_topic": "ramite/sdn/reservation/delete",
+  "image_compression": "<100,90,80,70,60,50,40,30,20,10>",
+  "intertask_reallocation_topic": "ramite/adaptation/intertask",
+  "intratask_adaptation_topic": "ramite/adaptation/intratask",
+  "isr_service": "mobilenetv2_cpu_batch_classification",
+  "ml_optimization": "on_device",
+  "model": "<0:5:60>",
+  "num_images": "100",
+  "num_pods": 2,
+  "pods": {
+    "image_repo_server": {
+      "compute": {
+        "limits": {
+          "cpu": "1500m",
+          "memory": "1000M"
+        },
+        "requests": {
+          "cpu": "1500m",
+          "memory": "1000M"
+        }
+      },
+      "labels": {
+        "camera": "true",
+        "node": "<UGS-0,UGS-1,UGS-2,UGS-3,UGS-4,UGS-5,UGS-6,UGS-7,UGS-8,UGS-9>",
+        "node_type": "UGS",
+        "port": "5277"
+      },
+      "network": {
+        "bandwidth": "4M"
+      }
+    },
+    "mobilenetv2_cpu_classifier": {
+      "compute": {
+        "gpu": {
+          "limit_mem": "4000M",
+          "request_mem": "4000M",
+          "status": false
+        },
+        "limits": {
+          "cpu": "1000m",
+          "memory": "8000M"
+        },
+        "requests": {
+          "cpu": "1000m",
+          "memory": "8000M"
+        }
+      },
+      "labels": {
+        "gpu": false,
+        "node": "<CHQ-1,UGS-0,UGS-1,UGS-2,UGS-3,UGS-4,UGS-5,UGS-6,UGS-7,UGS-8,UGS-9,PL0-0,PL0-1,PL0-2,APC-0,APC-1>",
+        "node_type": "<UGS,PLT,APC,CHQ>",
+        "port": "5322"
+      },
+      "network": {
+        "bandwidth": "4M"
+      }
+    }
+  },
+  "slice_guarantee": "1M",
+  "uuid": ""
+}

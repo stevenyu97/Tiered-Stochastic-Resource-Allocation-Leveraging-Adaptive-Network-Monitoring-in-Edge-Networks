@@ -1,0 +1,40 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+    -   id: check-added-large-files
+    -   id: check-ast
+    -   id: check-case-conflict
+    -   id: check-docstring-first
+    -   id: check-executables-have-shebangs
+    -   id: check-json
+    -   id: check-shebang-scripts-are-executable
+    -   id: pretty-format-json
+        args: ['--autofix']
+    -   id: check-merge-conflict
+    -   id: check-symlinks
+    -   id: check-yaml
+    -   id: debug-statements
+    -   id: destroyed-symlinks
+    -   id: detect-private-key
+    -   id: end-of-file-fixer
+    -   id: fix-byte-order-marker
+    -   id: fix-encoding-pragma
+    -   id: mixed-line-ending
+    -   id: name-tests-test
+    -   id: requirements-txt-fixer
+    -   id: sort-simple-yaml
+    -   id: trailing-whitespace
+-   repo: https://github.com/psf/black
+    rev: 21.12b0
+    hooks:
+      -   id: black
+          additional_dependencies: ['click==8.0.4']
+-  repo: local
+   hooks:
+     - id: pylint
+       name: pylint
+       entry: pylint
+       language: system
+       types: [ python ]
+       args: ['--jobs=4','--disable=C0330,C0326,logging-fstring-interpolation','--max-line-length=200','--fail-under=6']
